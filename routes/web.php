@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('contact', 'App\Http\Controllers\ContactController');
+
+Route::post('contacts', ['App\Http\Controllers\ContactController', 'store'])->name('contacts.store');
+Route::post('contact/update/{contact}', ['App\Http\Controllers\ContactController', 'update'])->name('contacts.update');
+Route::post('contact/delete/{contact}', ['App\Http\Controllers\ContactController', 'destroy'])->name('contacts.delete');
