@@ -10,7 +10,7 @@
                <a href="{{ route('contact.show',['contact' => $contact->name]) }}">{{$contact->name}}</a> 
                 <div>
                     <a href="{{ route('contact.edit',['contact' => $contact->name]) }}">EDIT</a> 
-                    <a href="{{ route('contacts.delete',['contact' => $contact->id]) }}">DELETE</a>
+                    <a href="{{ route('contacts.delete',['contact' => $contact->id]) }}">DELETE</button>
                 </div>
             </div>
         </li>

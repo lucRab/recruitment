@@ -39,16 +39,16 @@ class ContactController extends Controller
      */
     public function store(StoreResquestContact $request)
     {
-        try{
-            $data = $request->validated();
+         try{
+             $data = $request->validated();
             
-            $create = $this->repository->creatContact($data);
+             $create = $this->repository->creatContact($data);
             
-            if($create) return redirect()->back()->with('message', 'Successfully Create');
-            return redirect()->back()->with('message', 'Error Create');
-        }catch(\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 403); 
-        }
+             if($create) return redirect()->back()->with('message', 'Successfully Create');
+             return redirect()->back()->with('message', 'Error Create');
+         }catch(\Exception $e) {
+             return response()->json(['message' => $e->getMessage()], 403); 
+         }
     }
 
     /**
@@ -86,15 +86,16 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $contact)
     {
-        try {
-            $delete = $this->repository->deleteContact($id);
+        var_dump("a");
+        // try {
+        //     $delete = $this->repository->deleteContact($id);
             
-            if($delete) return redirect()->back()->with('message', 'Successfully Delete');
-            return redirect()->back()->with('message', 'Error Delete');
-        }catch(\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 403); 
-        }
+        //     if($delete) return redirect()->back()->with('message', 'Successfully Delete');
+        //     return redirect()->back()->with('message', 'Error Delete');
+        // }catch(\Exception $e) {
+        //     return response()->json(['message' => $e->getMessage()], 403); 
+        // }
     }
 }
