@@ -12,7 +12,9 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        'http://lucasrabelo-lv.eu1.alfasoft.pt/contact',
+        'http://lucasrabelo-lv.eu1.alfasoft.pt/*',
+        'http://lucasrabelo-lv.eu1.alfasoft.pt/*',
+        
         
     ];
 }

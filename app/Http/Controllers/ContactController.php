@@ -88,14 +88,13 @@ class ContactController extends Controller
      */
     public function destroy(string $contact)
     {
-        var_dump("a");
-        // try {
-        //     $delete = $this->repository->deleteContact($id);
+        try {
+             $delete = $this->repository->deleteContact($contact);
             
-        //     if($delete) return redirect()->back()->with('message', 'Successfully Delete');
-        //     return redirect()->back()->with('message', 'Error Delete');
-        // }catch(\Exception $e) {
-        //     return response()->json(['message' => $e->getMessage()], 403); 
-        // }
+             if($delete) return redirect()->back()->with('message', 'Successfully Delete');
+             return redirect()->back()->with('message', 'Error Delete');
+        }catch(\Exception $e) {
+             return response()->json(['message' => $e->getMessage()], 403); 
+        }
     }
 }

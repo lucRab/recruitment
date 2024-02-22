@@ -6,7 +6,7 @@
             <div class="card-title texte-centertexte-center">
                 <h2> Create Contact</h2>
             </div>
-            <form action="{{route('contacts.store')}}" method="POST">
+            <form action="{{route('contact.store')}}" method="POST">
                @csrf
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>

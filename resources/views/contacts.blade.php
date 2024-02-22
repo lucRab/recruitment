@@ -7,16 +7,23 @@
     @foreach($contacts as $contact)
         <li class="list-group-item">
             <div class="border border-1">
-               <a href="{{ route('contact.show',['contact' => $contact->name]) }}">{{$contact->name}}</a> 
+                <div class="container">
+               <a class="text-body-secondary" href="{{ route('contact.show',['contact' => $contact->name]) }}">{{$contact->name}}</a> 
                 <div>
-                    <a href="{{ route('contact.edit',['contact' => $contact->name]) }}">EDIT</a> 
-                    <a href="{{ route('contacts.delete',['contact' => $contact->id]) }}">DELETE</button>
+                    <form action="{{ route('contact.destroy',['contact' => $contact->id]) }}" method = "post">
+                        @csrf
+                        <a class="btn" href="{{ route('contact.edit',['contact' => $contact->name]) }}">EDIT</a>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn" type="submit">DELETE</button>
+                    </form>
+                        
+                    </div>
                 </div>
             </div>
         </li>
     @endforeach
     
 </ul>
-<a href="{{route('contact.create')}}">Create</a>
+<a class="text-body-secondary" href="{{route('contact.create')}}">Create</a>
 
 @endsection

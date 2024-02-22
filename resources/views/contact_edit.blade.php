@@ -6,8 +6,9 @@
             <div class="card-title texte-centertexte-center">
                 <h2> Edit Contact</h2>
             </div>
-            <form action="{{route('contacts.update', ['contact' => $contact])}}" method="post">
+            <form action="{{route('contact.update', ['contact' => $contact])}}" method="post">
                @csrf
+               <input type="hidden" name="_method" value="PUT">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input class="form-control" type="text"  name="name"id="name" value="{{$contact->name}}">
@@ -23,4 +24,7 @@
                 <button class="btn" class="btn" class="btn">Submit</button>
             </form>
         </div>
+    @if (session()->has('message'))
+        {{session()->get('message')}}
+    @endif
 @endsection
