@@ -16,8 +16,12 @@
                     {{$contact->contact}}
                 </div>
                 <div class="mb-3">
-                    <a class="btn" href="{{ route('contact.edit',['contact' => $contact->name]) }}">EDIT</a> 
-                    <a class="btn" href="{{ route('contacts.delete',['contact' => $contact->id]) }}">DELETE</a>
+                    <form action="{{ route('contact.destroy',['contact' => $contact->id]) }}" method = "post">
+                        @csrf
+                        <a class="btn" href="{{ route('contact.edit',['contact' => $contact->name]) }}">EDIT</a>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button class="btn" type="submit">DELETE</button>
+                    </form>
                 </div>
         </div>
 @endsection
